@@ -16,7 +16,6 @@ import Frase3 from './assets/images/Frase3.jpg'
         </button>
         <div class="collapse navbar-collapse" id="menuNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           </ul>
         </div>
@@ -28,7 +27,7 @@ import Frase3 from './assets/images/Frase3.jpg'
       <div class="container">
         <h1 class="display-4 fw-bold">¡Sabor que conquista!</h1>
         <p class="lead">Una comida bien equilibrada es como un poema al desarrollo de la vida</p>
-        <a href="#" class="btn btn-warning btn-lg mt-3">Hacer Pedido 😋</a>
+        <a href="menu.html" class="btn btn-warning btn-lg mt-3">¡Explora el menú y pide lo que se te antoje! 🤤</a>
       </div>
     </section>
 

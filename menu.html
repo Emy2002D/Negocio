@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú | Postres Galicia 💫</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      padding-bottom: 180px;
+    }
+
+    .navbar-brand {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        }
+
+    main {
+        flex: 1;
+        }
+
+    .producto-card:hover {
+      transform: scale(1.03);
+      transition: 0.2s ease-in-out;
+      box-shadow: 0 0 15px rgba(255,0,0,0.3);
+    }
+
+    .btn-pedir:hover {
+      transform: scale(1.08);
+      background-color: #dc3545;
+      color: white;
+    }
+
+    #carrito {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      width: 320px;
+      background-color: #fff;
+      border: 2px solid #dc3545;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 15px;
+      border-radius: 10px;
+      z-index: 999;
+      display: none;
+    }
+
+    #btnToggleCarrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger px-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">Postres Galicia 💫</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuNav">
+      <ul class="navbar-nav ms-auto">
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Título -->
+<section class="bg-warning text-center py-5 text-dark">
+  <div class="container">
+    <h1 class="display-5 fw-bold animate__animated animate__bounce">¡Conquista tus antojos!</h1>
+    <p class="lead">Postres, snacks y antojos irresistibles a cualquier hora 🌙</p>
+  </div>
+</section>
+
+        <!-- Productos -->
+        <section class="container my-5">
+        <div class="row g-4 justify-content-center">
+            <h3>Salito y Picosito</h3>
+
+            <!-- Hamburguesa -->
+            <div class="col-lg-4 col-md-6">
+            <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+                <img src="./assets/images/hamburguesa.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Hamburguesa Arrachera" />
+                <div class="card-body text-center">
+                <h5 class="card-title">Hamburguesa Arrachera</h5>
+                <p class="text-danger fw-bold">$120 MXN</p>
+                <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-hamburguesa" />
+                <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Hamburguesa Arrachera', 120, 'cant-hamburguesa')">Seleccionar</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Alitas -->
+            <div class="col-lg-4 col-md-6">
+            <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+                <img src="./assets/images/alitas.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Alitas BBQ" />
+                <div class="card-body text-center">
+                <h5 class="card-title">Alitas BBQ</h5>
+                <p class="text-danger fw-bold">$75 MXN</p>
+                <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-alitas" />
+                <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Alitas BBQ', 75, 'cant-alitas')">Seleccionar</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Boneless -->
+            <div class="col-lg-4 col-md-6">
+            <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+                <img src="./assets/images/boneless.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Boneless BBQ" />
+                <div class="card-body text-center">
+                <h5 class="card-title">Boneless BBQ</h5>
+                <p class="text-danger fw-bold">$75 MXN</p>
+                <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-boneless" />
+                <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Boneless BBQ', 75, 'cant-boneless')">Seleccionar</button>
+                </div>
+            </div>
+            </div>
+            <!-- Combo Hamburguesa + Papas -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/hamburguesa.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Combo Hamburguesa Arrachera + Papas" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Combo Hamburguesa Arrachera + Papas</h5>
+            <p class="text-danger fw-bold">$145 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-combo-hamburguesa" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Combo Hamburguesa Arrachera + Papas', 145, 'cant-combo-hamburguesa')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Combo Alitas BBQ + Papas -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/alitas.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Combo Alitas BBQ + Papas" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Combo Alitas BBQ + Papas</h5>
+            <p class="text-danger fw-bold">$95 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-combo-alitas" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Combo Alitas BBQ + Papas', 95, 'cant-combo-alitas')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Combo Boneless BBQ + Papas -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/boneless.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Combo Boneless BBQ + Papas" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Combo Boneless BBQ + Papas</h5>
+            <p class="text-danger fw-bold">$95 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-combo-boneless" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Combo Boneless BBQ + Papas', 95, 'cant-combo-boneless')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </section>
+
+        <section class="container my-5">
+        <div class="row g-4 justify-content-center">
+            <h3>Postres</h3>
+
+            <!-- Fresas con crema -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/fresas.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Fresas con Crema" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Fresas con Crema</h5>
+            <p class="text-danger fw-bold">$55 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-fresas" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Fresas con Crema', 55, 'cant-fresas')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Arroz con leche -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/arroz.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Arroz con Leche" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Arroz con Leche</h5>
+            <p class="text-danger fw-bold">$45 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-arroz" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Arroz con Leche', 45, 'cant-arroz')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Flan Napolitano -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/flan.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Flan Napolitano" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Flan Napolitano</h5>
+            <p class="text-danger fw-bold">$40 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-flan" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Flan Napolitano', 40, 'cant-flan')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Pastel Imposible -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/imposible.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Pastel Imposible" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Pastel Imposible</h5>
+            <p class="text-danger fw-bold">$60 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-imposible" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Pastel Imposible', 60, 'cant-imposible')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Pay de Limón -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/pay.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Pay de Limón" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Pay de Limón</h5>
+            <p class="text-danger fw-bold">$50 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-pay" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Pay de Limón', 50, 'cant-pay')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Gelatinas variadas -->
+        <div class="col-lg-4 col-md-6">
+        <div class="card h-100 producto-card shadow animate__animated animate__fadeInUp">
+            <img src="./assets/images/gelatina.jpg" class="card-img-top" style="height:220px; object-fit:cover;" alt="Gelatinas Variadas" />
+            <div class="card-body text-center">
+            <h5 class="card-title">Gelatinas Variadas</h5>
+            <p class="text-danger fw-bold">$25 MXN</p>
+            <input type="number" class="form-control w-50 mx-auto mb-2" min="1" value="1" id="cant-gelatina" />
+            <button class="btn btn-outline-danger btn-sm btn-pedir" onclick="agregarAlCarrito('Gelatinas Variadas', 25, 'cant-gelatina')">Seleccionar</button>
+            </div>
+        </div>
+        </div>
+        </section>
+
+<!-- Botón flotante para abrir carrito -->
+<button id="btnToggleCarrito" class="btn btn-danger" onclick="toggleCarrito()">🛒 Ver Pedido</button>
+
+<!-- 🛒 Carrito flotante -->
+<div id="carrito">
+  <h5 class="text-danger">🛒 Tu Pedido</h5>
+  <ul id="listaCarrito" class="list-unstyled mb-2"></ul>
+
+  <label class="form-label">Tipo de entrega:</label>
+  <select class="form-select mb-2" id="tipoEntrega" onchange="mostrarOpcionesPago()">
+    <option value="tienda">Recoger en tienda 🏪</option>
+    <option value="domicilio">Entrega a domicilio 🚚</option>
+  </select>
+
+  <div id="opcionesPago" style="display:none;">
+    <label class="form-label">Método de pago:</label>
+    <select class="form-select mb-2" id="metodoPago">
+      <option>Efectivo 💵</option>
+      <option>Transferencia 📲</option>
+      <option>Terminal 💳</option>
+    </select>
+  </div>
+
+  <button class="btn btn-success w-100" onclick="finalizarPedido()">Confirmar Pedido</button>
+</div>
+
+<!-- Footer -->
+<footer class="bg-danger text-white text-center py-4 mt-5">
+  <p class="mb-0">&copy; 2025 Postres Galicia. Tu sabor, nuestra pasión 🍓</p>
+</footer>
+
+<script>
+  let carrito = [];
+
+  function toggleCarrito() {
+    const carritoDiv = document.getElementById("carrito");
+    carritoDiv.style.display = carritoDiv.style.display === "none" ? "block" : "none";
+  }
+
+  function agregarAlCarrito(nombre, precio, cantidadId) {
+    const cantidad = parseInt(document.getElementById(cantidadId).value);
+    if (isNaN(cantidad) || cantidad <= 0) return;
+
+    // Verifica si el producto ya está en el carrito
+    const existente = carrito.find(item => item.nombre === nombre);
+    if (existente) {
+      existente.cantidad += cantidad;
+    } else {
+      carrito.push({ nombre, precio, cantidad });
+    }
+
+    renderizarCarrito();
+  }
+
+  function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    renderizarCarrito();
+  }
+
+  function renderizarCarrito() {
+    const lista = document.getElementById("listaCarrito");
+    const totalSpan = document.getElementById("totalCarrito");
+    lista.innerHTML = '';
+
+    let total = 0;
+
+    carrito.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.classList.add("mb-2");
+
+      const subtotal = item.precio * item.cantidad;
+      total += subtotal;
+
+      li.innerHTML = `
+        ${item.cantidad} x ${item.nombre} - $${subtotal} MXN
+        <button class="btn btn-sm btn-outline-secondary ms-2" onclick="eliminarDelCarrito(${index})">❌</button>
+      `;
+      lista.appendChild(li);
+    });
+
+    totalSpan.textContent = `$${total} MXN`;
+  }
+
+  function mostrarOpcionesPago() {
+    const entrega = document.getElementById("tipoEntrega").value;
+    document.getElementById("opcionesPago").style.display = entrega === "domicilio" ? "block" : "none";
+  }
+
+  function finalizarPedido() {
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío 😢. Agrega algún producto antes de confirmar.");
+      return;
+    }
+
+    const entrega = document.getElementById("tipoEntrega").value;
+    const pago = entrega === "domicilio" ? document.getElementById("metodoPago").value : "No aplica";
+
+    let total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+    const folio = Math.floor(Math.random() * 900000 + 100000);
+
+    let mensaje = `🧾 Pedido confirmado\nFolio #${folio}\n\n`;
+    carrito.forEach(item => {
+      mensaje += `- ${item.cantidad} x ${item.nombre} ($${item.precio * item.cantidad} MXN)\n`;
+    });
+
+    mensaje += `\n💰 Total: $${total} MXN\n`;
+    mensaje += `📦 Entrega: ${entrega === 'tienda' ? 'Recoger en tienda 🏪' : 'Entrega a domicilio 🚚'}\n`;
+
+    if (entrega === 'domicilio') {
+      mensaje += `💳 Método de pago: ${pago}\n`;
+    }
+
+    mensaje += `⏱️ Tiempo estimado: máximo 30 minutos.\n¡Gracias por tu compra en Postres Galicia! 🍓`;
+
+    alert(mensaje);
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1000);
+  }
+</script>
